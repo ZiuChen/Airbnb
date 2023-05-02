@@ -1,8 +1,10 @@
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import { HashRouter } from 'react-router-dom'
-import App from './App'
+import { Provider } from 'react-redux'
 
+import App from './App'
+import store from '@/store'
 import 'normalize.css'
 import '@/assets/css/index.less'
 
@@ -11,7 +13,9 @@ root.render(
   <React.StrictMode>
     <Suspense fallback="Loading...">
       <HashRouter>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </HashRouter>
     </Suspense>
   </React.StrictMode>
