@@ -1,9 +1,12 @@
-import HelloWorld from '@/components/HelloWorld'
+import { useRoutes } from 'react-router-dom'
+import routes from '@/router'
 
 function App() {
   return (
     <div className="app">
-      <HelloWorld />
+      <div className="header">Header</div>
+      <div className="page">{useRoutes(routes)}</div>
+      <div className="footer">Footer</div>
     </div>
   )
 }
