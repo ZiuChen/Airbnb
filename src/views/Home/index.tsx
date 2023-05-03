@@ -1,6 +1,12 @@
-import { memo } from 'react'
+import { memo, useEffect } from 'react'
+import request from '@/service'
 
 const Home = memo(() => {
+  useEffect(() => {
+    request.get({ url: '/home/highscore' }).then((res) => {
+      console.log(res)
+    })
+  }, [])
   return <div>Home</div>
 })
 
