@@ -46,4 +46,10 @@ export const HeaderRightWrapper = styled.div`
     width: 25px !important;
     color: ${(props) => props.theme.textColor.secondaryColor};
   }
+
+  .dropdown {
+    position: absolute;
+    right: 0;
+    top: 55px;
+  }
 `
