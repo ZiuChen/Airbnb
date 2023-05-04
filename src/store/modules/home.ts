@@ -19,10 +19,10 @@ const slice = createSlice({
       state.goodPriceInfo = payload
     }
   },
-  extraReducers: {
-    [fetchGoodPriceInfoAction.fulfilled.type]: (state, { payload }) => {
+  extraReducers(builder) {
+    builder.addCase(fetchGoodPriceInfoAction.fulfilled, (state, { payload }) => {
       state.goodPriceInfo = payload
-    }
+    })
   }
 })
 
