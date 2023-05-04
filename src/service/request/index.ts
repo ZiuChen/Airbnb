@@ -84,8 +84,6 @@ class ARequest {
   }
 }
 
-console.log(BASE_URL)
-
 const instance = new ARequest({
   baseURL: BASE_URL,
   timeout: TIMEOUT

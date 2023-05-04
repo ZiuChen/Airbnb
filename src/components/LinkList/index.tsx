@@ -3,7 +3,6 @@ import { LinkListWrapper } from './style'
 import { LinkListProps } from './props'
 
 const LinkList = memo((props: LinkListProps) => {
-  console.log(props.links)
   return (
     <LinkListWrapper>
       <div>{props.title}</div>
