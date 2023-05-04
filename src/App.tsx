@@ -4,6 +4,7 @@ import Header from '@/components/Header'
 import Logo from '@/components/Logo'
 import HeaderRight from '@/components/HeaderRight'
 import SearchBar from './components/SearchBar'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         <Header left={<Logo />} center={<SearchBar />} right={<HeaderRight />}></Header>
       </div>
       <div className="page">{useRoutes(routes)}</div>
-      <div className="footer">Footer</div>
+      <Footer />
     </div>
   )
 }

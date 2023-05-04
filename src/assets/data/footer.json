@@ -1,0 +1,38 @@
+[
+  {
+    "title": "爱彼迎",
+    "links": [
+      { "title": "工作机会", "link": "" },
+      { "title": "爱彼迎新闻", "link": "" },
+      { "title": "政策", "link": "" },
+      { "title": "无障碍设施", "link": "" }
+    ]
+  },
+  {
+    "title": "发现",
+    "links": [
+      { "title": "信任与安全", "link": "" },
+      { "title": "旅行基金", "link": "" },
+      { "title": "商务差旅", "link": "" },
+      { "title": "爱彼迎杂志", "link": "" },
+      { "title": "Airbnb.org", "link": "" }
+    ]
+  },
+  {
+    "title": "出租",
+    "links": [
+      { "title": "为什么要出租", "link": "" },
+      { "title": "待客之道", "link": "" },
+      { "title": "房东义务", "link": "" },
+      { "title": "开展体验", "link": "" },
+      { "title": "资源中心", "link": "" }
+    ]
+  },
+  {
+    "title": "客服支持",
+    "links": [
+      { "title": "帮助", "link": "" },
+      { "title": "邻里支持", "link": "" }
+    ]
+  }
+]
