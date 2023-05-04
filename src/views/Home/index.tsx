@@ -1,8 +1,10 @@
 import { memo, useEffect } from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
+import { HomeWrapper } from './style'
 import { fetchGoodPriceInfoAction } from '@/store/modules/home'
 import type { RootState } from '@/store'
 import Title from '@/components/Title'
+import ShowcaseItem from '@/components/ShowcaseItem'
 
 const Home = memo(() => {
   const { goodPriceInfo } = useSelector(
@@ -20,9 +22,27 @@ const Home = memo(() => {
   }, [dispatch])
 
   return (
-    <div>
+    <HomeWrapper>
       <Title title={goodPriceInfo.title} subTitle="来看看这些高性价比的房源吧" />
-    </div>
+      <div className="showcase">
+        {goodPriceInfo?.list
+          ?.slice(0, 8)
+          .map(
+            ({ id, verify_info, picture_url, name, bottom_info, reviews_count, price_format }) => (
+              <ShowcaseItem
+                key={id}
+                tag={verify_info.messages.join(' ')}
+                tagColor={verify_info.text_color}
+                imgUri={picture_url}
+                title={name}
+                comment={bottom_info?.content || ''}
+                rate={reviews_count}
+                price={price_format}
+              />
+            )
+          )}
+      </div>
+    </HomeWrapper>
   )
 })
 
