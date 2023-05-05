@@ -1,15 +1,16 @@
 import { memo, useEffect } from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { HomeWrapper } from './style'
-import { fetchGoodPriceInfoAction } from '@/store/modules/home'
+import { fetchGoodPriceInfoAction, fetchHighScoreInfoAction } from '@/store/modules/home'
 import type { RootState } from '@/store'
 import Title from '@/components/Title'
-import ShowcaseItem from '@/components/ShowcaseItem'
+import Showcase from '@/components/Showcase'
 
 const Home = memo(() => {
-  const { goodPriceInfo } = useSelector(
+  const { goodPriceInfo, highScoreInfo } = useSelector(
     (state: RootState) => ({
-      goodPriceInfo: state.home.goodPriceInfo
+      goodPriceInfo: state.home.goodPriceInfo,
+      highScoreInfo: state.home.highScoreInfo
     }),
     shallowEqual
   )
@@ -19,39 +20,16 @@ const Home = memo(() => {
   useEffect(() => {
     // @ts-ignore
     dispatch(fetchGoodPriceInfoAction())
+    // @ts-ignore
+    dispatch(fetchHighScoreInfoAction())
   }, [dispatch])
 
   return (
     <HomeWrapper>
       <Title title={goodPriceInfo.title} subTitle="来看看这些高性价比的房源吧" />
-      <div className="showcase">
-        {goodPriceInfo?.list
-          ?.slice(0, 8)
-          .map(
-            ({
-              id,
-              verify_info,
-              picture_url,
-              name,
-              bottom_info,
-              reviews_count,
-              star_rating,
-              price_format
-            }) => (
-              <ShowcaseItem
-                key={id}
-                tag={verify_info.messages.join(' ')}
-                tagColor={verify_info.text_color}
-                imgUri={picture_url}
-                title={name}
-                comment={bottom_info?.content || ''}
-                reviews={reviews_count}
-                rate={star_rating ?? 2.5}
-                price={price_format}
-              />
-            )
-          )}
-      </div>
+      <Showcase list={goodPriceInfo.list} />
+      <Title title={highScoreInfo.title} subTitle="来看看这些高评分的房源吧" />
+      <Showcase list={highScoreInfo.list} />
     </HomeWrapper>
   )
 })
