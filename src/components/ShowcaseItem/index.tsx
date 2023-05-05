@@ -10,6 +10,8 @@ import {
 } from './style'
 
 export interface ShowcaseItemProps {
+  itemWidth?: string
+
   tag: string
   tagColor: string
   imgUri: string
@@ -21,9 +23,10 @@ export interface ShowcaseItemProps {
 }
 
 const ShowcaseItem = memo((props: ShowcaseItemProps) => {
+  const { itemWidth } = props
   const { tag, tagColor, imgUri, comment, title, reviews, rate, price } = props
   return (
-    <ShowcaseItemWrapper>
+    <ShowcaseItemWrapper itemWidth={itemWidth}>
       {comment && <CommentWrapper>{comment}</CommentWrapper>}
       <ImageWrapper src={imgUri} alt={title} />
       <TagWrapper tagColor={tagColor}>{tag}</TagWrapper>

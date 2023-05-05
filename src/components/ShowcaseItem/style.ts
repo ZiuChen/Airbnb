@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-export const ShowcaseItemWrapper = styled.div`
+export const ShowcaseItemWrapper = styled.div<{ itemWidth?: string }>`
   position: relative;
   box-sizing: border-box;
   padding: 5px;
-  width: 25%;
+  width: ${(props) => props.itemWidth || '25%'};
   overflow: hidden;
 `
 
@@ -20,7 +20,7 @@ export const CommentWrapper = styled.span`
 export const ImageWrapper = styled.img`
   object-fit: cover; // 图片放大 保证固定高度
   height: 200px;
-  border-radius: 5px 5px 0 0;
+  width: 100%;
 `
 
 export const TagWrapper = styled.span<{ tagColor: string }>`

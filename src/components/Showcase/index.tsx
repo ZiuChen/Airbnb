@@ -4,14 +4,14 @@ import { ShowcaseWrapper } from './style'
 
 export interface ShowcaseItemProps {
   list: any[]
+  itemWidth?: string
 }
 
 const Showcase = memo((props: ShowcaseItemProps) => {
-  const { list } = props
+  const { list, itemWidth } = props
 
   return (
     <ShowcaseWrapper>
-      {' '}
       {list
         ?.slice(0, 8)
         .map(
@@ -26,6 +26,7 @@ const Showcase = memo((props: ShowcaseItemProps) => {
             price_format
           }) => (
             <ShowcaseItem
+              itemWidth={itemWidth}
               key={id}
               tag={verify_info.messages.join(' ')}
               tagColor={verify_info.text_color}
