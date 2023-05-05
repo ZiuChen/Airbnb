@@ -28,7 +28,16 @@ const Home = memo(() => {
         {goodPriceInfo?.list
           ?.slice(0, 8)
           .map(
-            ({ id, verify_info, picture_url, name, bottom_info, reviews_count, price_format }) => (
+            ({
+              id,
+              verify_info,
+              picture_url,
+              name,
+              bottom_info,
+              reviews_count,
+              star_rating,
+              price_format
+            }) => (
               <ShowcaseItem
                 key={id}
                 tag={verify_info.messages.join(' ')}
@@ -36,7 +45,8 @@ const Home = memo(() => {
                 imgUri={picture_url}
                 title={name}
                 comment={bottom_info?.content || ''}
-                rate={reviews_count}
+                reviews={reviews_count}
+                rate={star_rating ?? 2.5}
                 price={price_format}
               />
             )

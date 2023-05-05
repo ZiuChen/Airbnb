@@ -33,3 +33,16 @@ export const TitleWrapper = styled.div`
   font-weight: bold;
   margin: 5px 0;
 `
+
+export const RateWrapper = styled.div`
+  & > span:nth-child(2),
+  & > span:nth-child(3) {
+    margin-left: 5px;
+    color: ${(props) => props.theme.textColor.secondaryColor};
+  }
+
+  span {
+    font-size: 12px;
+    margin-right: -1px;
+  }
+`

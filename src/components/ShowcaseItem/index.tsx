@@ -1,10 +1,12 @@
 import { memo } from 'react'
+import { Rating } from '@mui/material'
 import {
   ShowcaseItemWrapper,
   CommentWrapper,
   ImageWrapper,
   TagWrapper,
-  TitleWrapper
+  TitleWrapper,
+  RateWrapper
 } from './style'
 
 export interface ShowcaseItemProps {
@@ -13,20 +15,25 @@ export interface ShowcaseItemProps {
   imgUri: string
   comment: string
   title: string
+  reviews: number
   rate: number
   price: string
 }
 
 const ShowcaseItem = memo((props: ShowcaseItemProps) => {
-  const { tag, tagColor, imgUri, comment, title, rate, price } = props
+  const { tag, tagColor, imgUri, comment, title, reviews, rate, price } = props
   return (
     <ShowcaseItemWrapper>
       {comment && <CommentWrapper>{comment}</CommentWrapper>}
       <ImageWrapper src={imgUri} alt={title} />
       <TagWrapper tagColor={tagColor}>{tag}</TagWrapper>
       <TitleWrapper>{title}</TitleWrapper>
-      <div>{rate}</div>
-      <div>{price}</div>
+      <div>{price}/晚</div>
+      <RateWrapper>
+        <Rating value={rate} precision={0.5} readOnly sx={{ color: '#00848a' }} />
+        <span>{reviews}</span>
+        <span>{comment}</span>
+      </RateWrapper>
     </ShowcaseItemWrapper>
   )
 })

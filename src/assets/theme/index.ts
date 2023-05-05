@@ -1,3 +1,5 @@
+import { createTheme } from '@mui/material'
+
 export const theme = {
   color: {
     primaryColor: '#eb4c60',
@@ -22,3 +24,5 @@ export const theme = {
       }`
   }
 }
+
+export const muiTheme = createTheme()
