@@ -10,13 +10,14 @@ export const LinkListWrapper = styled.div`
 
   & > div {
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 
   & > a {
     font-size: ${(props) => props.theme.fontSize.small};
     color: ${(props) => props.theme.textColor.secondaryColor};
     text-decoration: none;
+    margin-bottom: 10px;
 
     &:hover {
       text-decoration: underline;
