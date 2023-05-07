@@ -3,9 +3,11 @@ import {
   fetchGoodPriceInfo,
   fetchHighScoreInfo,
   fetchDiscountInfo,
+  fetchRecommendInfo,
   GoodPriceInfo,
   HighScoreInfo,
-  DiscountInfo
+  DiscountInfo,
+  RecommendInfo
 } from '@/service'
 
 export const fetchGoodPriceInfoAction = createAsyncThunk('goodPrice', () => fetchGoodPriceInfo())
@@ -13,6 +15,15 @@ export const fetchGoodPriceInfoAction = createAsyncThunk('goodPrice', () => fetc
 export const fetchHighScoreInfoAction = createAsyncThunk('highScore', () => fetchHighScoreInfo())
 
 export const fetchDiscountInfoAction = createAsyncThunk('discount', () => fetchDiscountInfo())
+
+export const fetchRecommendInfoAction = createAsyncThunk('recommend', () => fetchRecommendInfo())
+
+export interface IInitialState {
+  goodPriceInfo: GoodPriceInfo
+  highScoreInfo: HighScoreInfo
+  discountInfo: DiscountInfo
+  recommendInfo: RecommendInfo
+}
 
 const slice = createSlice({
   name: 'home',
@@ -28,8 +39,12 @@ const slice = createSlice({
     /**
      * 折扣房源
      */
-    discountInfo: {}
-  } as { goodPriceInfo: GoodPriceInfo; highScoreInfo: HighScoreInfo; discountInfo: DiscountInfo },
+    discountInfo: {},
+    /**
+     * 热门房源
+     */
+    recommendInfo: {}
+  } as IInitialState,
   reducers: {
     changeGoodPriceInfo(state, { payload }) {
       state.goodPriceInfo = payload
@@ -39,6 +54,9 @@ const slice = createSlice({
     },
     changeDiscountInfo(state, { payload }) {
       state.discountInfo = payload
+    },
+    changeRecommendInfo(state, { payload }) {
+      state.recommendInfo = payload
     }
   },
   extraReducers(builder) {
@@ -52,6 +70,10 @@ const slice = createSlice({
 
     builder.addCase(fetchDiscountInfoAction.fulfilled, (state, { payload }) => {
       state.discountInfo = payload
+    })
+
+    builder.addCase(fetchRecommendInfoAction.fulfilled, (state, { payload }) => {
+      state.recommendInfo = payload
     })
   }
 })
