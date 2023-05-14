@@ -10,6 +10,7 @@ import type { RootState } from '@/store'
 import Title from '@/components/Title'
 import Showcase from '@/components/Showcase'
 import Tabs from '@/components/Tabs'
+import More from '@/components/More'
 
 const Home = memo(() => {
   const [activeIdx, setActiveIdx] = useState(0)
@@ -51,10 +52,13 @@ const Home = memo(() => {
           itemWidth={100 / 3 + '%'}
         />
       )}
+      <More />
       <Title title={goodPriceInfo.title} subTitle="来看看这些高性价比的房源吧" />
       <Showcase list={goodPriceInfo.list} />
+      <More name={goodPriceInfo.title} />
       <Title title={highScoreInfo.title} subTitle="来看看这些高评分的房源吧" />
       <Showcase list={highScoreInfo.list} />
+      <More name={highScoreInfo.title} />
     </HomeWrapper>
   )
 })
