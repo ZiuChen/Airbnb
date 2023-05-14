@@ -1,7 +1,10 @@
 import { ChangeEvent, memo, useState } from 'react'
-import { SearchBarWrapper } from './style'
-// @ts-ignore
-import { ReactComponent as Search } from '@/assets/svg/search.svg'
+import {
+  SearchBarWrapper,
+  SearchInputWrapper,
+  SearchPlaceholderWrapper,
+  SearchBtnWrapper
+} from './style'
 
 const SearchBar = memo(() => {
   const [searchValue, setSearchValue] = useState('')
@@ -12,14 +15,9 @@ const SearchBar = memo(() => {
 
   return (
     <SearchBarWrapper>
-      <input
-        className="search-input"
-        type="text"
-        value={searchValue}
-        onChange={(e) => handleInputChange(e)}
-      />
-      {!searchValue && <span className="search-placeholder">搜索房源和体验</span>}
-      <Search className="search-btn" />
+      <SearchInputWrapper type="text" value={searchValue} onChange={(e) => handleInputChange(e)} />
+      {!searchValue && <SearchPlaceholderWrapper>搜索房源和体验</SearchPlaceholderWrapper>}
+      <SearchBtnWrapper />
     </SearchBarWrapper>
   )
 })

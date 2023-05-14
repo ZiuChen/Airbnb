@@ -1,12 +1,15 @@
 import { memo, useState } from 'react'
 import Dropdown, { DropdownItem } from '../Dropdown'
-// @ts-ignore
-import { ReactComponent as Earth } from '@/assets/svg/earth.svg'
-// @ts-ignore
-import { ReactComponent as Menu } from '@/assets/svg/menu.svg'
-// @ts-ignore
-import { ReactComponent as User } from '@/assets/svg/user.svg'
-import { HeaderRightWrapper } from './style'
+
+import {
+  HeaderRightWrapper,
+  UserBarWrapper,
+  DropdownWrapper,
+  EarthWrapper,
+  MenuWrapper,
+  UserWrapper,
+  TipWrapper
+} from './style'
 import { useEventListener } from '@/hooks'
 
 const UserBar = memo(() => {
@@ -28,14 +31,14 @@ const UserBar = memo(() => {
 
   return (
     <>
-      <span className="user-bar" onClick={() => handleUserBarClick()}>
-        <Menu className="menu" />
-        <User className="user" />
-      </span>
+      <UserBarWrapper onClick={() => handleUserBarClick()}>
+        <MenuWrapper />
+        <UserWrapper />
+      </UserBarWrapper>
       {dropdownVisible && (
-        <div className="dropdown">
+        <DropdownWrapper>
           <Dropdown list={dropdownList} />
-        </div>
+        </DropdownWrapper>
       )}
     </>
   )
@@ -44,8 +47,8 @@ const UserBar = memo(() => {
 const HeaderRight = memo(() => {
   return (
     <HeaderRightWrapper>
-      <span className="tip">来爱彼迎发布房源</span>
-      <Earth className="locale" />
+      <TipWrapper>来爱彼迎发布房源</TipWrapper>
+      <EarthWrapper />
       <UserBar />
     </HeaderRightWrapper>
   )

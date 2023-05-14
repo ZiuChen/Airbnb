@@ -1,5 +1,5 @@
 import { memo, ReactElement } from 'react'
-import { HeaderWrapper } from './style'
+import { HeaderWrapper, LeftWrapper, CenterWrapper, RightWrapper } from './style'
 
 export interface HeaderProps {
   left?: ReactElement
@@ -10,9 +10,9 @@ export interface HeaderProps {
 const Header = memo((props: HeaderProps) => {
   return (
     <HeaderWrapper>
-      <div className="left">{props?.left}</div>
-      <div className="center">{props?.center}</div>
-      <div className="right">{props?.right}</div>
+      <LeftWrapper>{props?.left}</LeftWrapper>
+      <CenterWrapper>{props?.center}</CenterWrapper>
+      <RightWrapper>{props?.right}</RightWrapper>
     </HeaderWrapper>
   )
 })

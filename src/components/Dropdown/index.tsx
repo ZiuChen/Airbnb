@@ -1,5 +1,5 @@
 import { MouseEvent, memo } from 'react'
-import { DropdownWrapper } from './style'
+import { DropdownWrapper, DropdownItemWrapper } from './style'
 
 export interface DropdownProps {
   list: DropdownItem[]
@@ -16,9 +16,9 @@ const Dropdown = memo((props: DropdownProps) => {
   return (
     <DropdownWrapper>
       {list.map((item) => (
-        <div className="item" key={item.id} onClick={(e) => item?.onClick && item.onClick(e)}>
+        <DropdownItemWrapper key={item.id} onClick={(e) => item?.onClick && item.onClick(e)}>
           {item.name}
-        </div>
+        </DropdownItemWrapper>
       ))}
     </DropdownWrapper>
   )

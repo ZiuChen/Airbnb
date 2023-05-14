@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { TitleWrapper } from './style'
+import { TitleWrapper, TitleContentWrapper, SubtitleWrapper } from './style'
 
 export interface TitleProps {
   title: string
@@ -9,8 +9,8 @@ export interface TitleProps {
 const Title = memo((props: TitleProps) => {
   return (
     <TitleWrapper>
-      <h3 className="title">{props.title}</h3>
-      <span className="sub-title">{props.subTitle}</span>
+      <TitleContentWrapper>{props.title}</TitleContentWrapper>
+      <SubtitleWrapper>{props.subTitle}</SubtitleWrapper>
     </TitleWrapper>
   )
 })

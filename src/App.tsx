@@ -8,13 +8,11 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="app">
-      <div className="header">
-        <Header left={<Logo />} center={<SearchBar />} right={<HeaderRight />}></Header>
-      </div>
-      <div className="page">{useRoutes(routes)}</div>
+    <>
+      <Header left={<Logo />} center={<SearchBar />} right={<HeaderRight />}></Header>
+      {useRoutes(routes)}
       <Footer />
-    </div>
+    </>
   )
 }
 
